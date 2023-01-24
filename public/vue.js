@@ -1,5 +1,3 @@
-const API_URL = "https://darius-project.herokuapp.com/api";
-
 let webstore = new Vue({
   el: "#app",
   data: {
@@ -29,7 +27,7 @@ let webstore = new Vue({
       this.togglePage();
     },
     async confirm() {
-      await fetch(`${API_URL}/order`, {
+      await fetch(`/order`, {
         method: "POST",
         body: JSON.stringify({
           name: this.name,
@@ -40,7 +38,7 @@ let webstore = new Vue({
       }).then(async (response) => {
         let data = await response.json();
 
-        await fetch(`${API_URL}/lesson/${this.targetLesson._id}`, {
+        await fetch(`/lesson/${this.targetLesson._id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -63,7 +61,7 @@ let webstore = new Vue({
       });
     },
     async search() {
-      let response = await fetch(`${API_URL}/search/${this.searchTerm}`, {
+      let response = await fetch(`/search/${this.searchTerm}`, {
         method: "GET",
       });
       let data = await response.json();
@@ -72,7 +70,7 @@ let webstore = new Vue({
       console.log("data: ", data);
     },
     async getLessons() {
-      let response = await fetch(`${API_URL}/lesson`, {
+      let response = await fetch(`/lesson`, {
         method: "GET",
       });
       let data = await response.json();
