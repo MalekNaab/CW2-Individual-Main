@@ -1,7 +1,7 @@
 const { MongoClient, ObjectId } = require("mongodb");
 // establish a connection with mongodb
 const uri =
-"mongodb+srv://Malman:cOvNBJzkHBtLpQXf@cluster0.icy8crt.mongodb.net/?retryWrites=true&w=majority"; //uri for mongodb
+"mongodb+srv://Malman:Malman234@cluster0.icy8crt.mongodb.net/?retryWrites=true&w=majority"; //uri for mongodb
 var client = new MongoClient(uri);
 
 async function connect() {
@@ -62,26 +62,26 @@ app.use(logger);
 app.use("/public", express.static(__dirname + "/public"));  // inbuild "static" middleware to serve course images
 
 // Defining api routes
-app.get("/api/lesson", async (req, res) => {
+app.get("/lesson", async (req, res) => {
   const result = await getLessons();
   res.send(result);
 });
 
-app.post("/api/order", async (req, res) => {
+app.post("/order", async (req, res) => {
 	const result = await createOrder(req.body);
   res.send({
 		msg: `Reservation with id [${result.insertedId}] has been created successfully!`,
 	});
 });
 
-app.put("/api/lesson/:id", async(req, res) => {
+app.put("/lesson/:id", async(req, res) => {
 	const result = await updateLesson(req.params.id, req.body.space);
 	res.send({
     msg: `Spaces in the lesson [id: ${req.params.id}] updated after successful order`,
   });
 });
 
-app.get("/api/search/:searchTerm", async (req, res) => {
+app.get("/search/:searchTerm", async (req, res) => {
   const result = await searchLesson(req.params.searchTerm);
   res.send(result);
 });
