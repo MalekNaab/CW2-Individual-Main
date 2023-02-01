@@ -1,18 +1,7 @@
-GITHUB FRONTEND: https://github.com/NBKdev/frontend
+GITHUB FRONTEND: https://github.com/MalekNaab/CW2-Individual-FrontEnd
 
+GITHUB BACKEND: https://github.com/MalekNaab/CW2-Individual-Backend
 
-https://github.com/MalekNaab/CW2-Individual-FrontEnd
+GITHUB PAGES: https://github.com/MalekNaab/CW2-Individual-Main
 
-GITHUB BACKEND: https://github.com/NBKdev/backend
-
-https://github.com/MalekNaab/CW2-Individual-Backend
-
-GITHUB PAGES: https://NBKdev.github.io/main/
-
-
-https://github.com/MalekNaab/CW2-Individual-Main
-
-Heroku Page : https://darius-project.herokuapp.com/
-
-
-https://protected-sands-01258.herokuapp.com/
+Heroku Page: https://protected-sands-01258.herokuapp.com/
