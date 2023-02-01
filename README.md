@@ -1,5 +1,8 @@
 GITHUB FRONTEND: https://github.com/NBKdev/frontend
 
+
+https://github.com/MalekNaab/CW2-Individual-FrontEnd
+
 GITHUB BACKEND: https://github.com/NBKdev/backend
 
 GITHUB PAGES: https://NBKdev.github.io/main/
