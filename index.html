@@ -9,7 +9,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.10/dist/vue.js"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="./public/style.css">
-    <title>Work 2</title>
+    <title>CW2</title>
 </head>
 
 <body>
@@ -18,19 +18,7 @@
         <section v-if="activePage === 'lessons'">
             <!-- Sorting section -->
             <section class="sorting-section">
-                <select v-model="sortBy">
-                    <option value="topic">Topic</option>
-                    <option value="location">Location</option>
-                    <option value="price">Price</option>
-                    <option value="space">Space</option>
-                </select>
-
-                <select v-model="sortOrder">
-                    <option value="asc">ASC</option>
-                    <option value="desc">DESC</option>
-                </select>
-
-                <input placeholder="Type topic name" class="search" v-model="searchTerm">
+                <input placeholder="Search For Topic" class="search" v-model="searchTerm">
             </section>
 
             <!-- lessons section-->
@@ -39,10 +27,10 @@
                 <div class="lessons-list" v-if="sortedLessons.length">
                     <article v-for="(lesson, index) in sortedLessons" :key="lesson.id" class="lesson">
                         <div class="lesson-left">
-                            <img :src="`https://darius-project.herokuapp.com/public/course${index+1}.jpg`" class="lesson-image" />
+                            <img :src="`./public/course${index+1}.jpg`" class="lesson-image" />
                             <h1 class="lesson-title">{{ lesson.topic }}</h1>
                             <button :class="lesson.space === 0 ? 'disabled-purchase-btn' : 'purchase-btn'"
-                                @click="purchaseLesson(lesson)">Purchase Lesson</button>
+                                @click="purchaseLesson(lesson)">Buy</button>
                         </div>
                         <div class="lesson-right">
                             <p class="lesson-description" v-html="lesson.description"></p>
