@@ -3,7 +3,7 @@ let webstore = new Vue({
   data: {
     lessons: [],
     sortBy: "topic",
-    sortOrder: "asc",
+    // sortOrder: "asc",
     activePage: "lessons",
     name: "",
     phone: "",
