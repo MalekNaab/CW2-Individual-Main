@@ -1,8 +1,9 @@
 const { MongoClient, ObjectId } = require("mongodb");
-// establish a connection with mongodb
+// creating a connection with mongodb
 const uri =
 "mongodb+srv://Malman:Malman234@cluster0.icy8crt.mongodb.net/?retryWrites=true&w=majority"; //uri for mongodb
 var client = new MongoClient(uri);
+
 
 async function connect() {
   // try to establish a connection with the mongodb
@@ -20,6 +21,7 @@ async function createOrder(order) {
 	return await client.db("project").collection("orders").insertOne(order);
 }
 
+// retrieves all lessons in the lesson collection of the project database
 async function getLessons() {
 	return client
     .db("project")
@@ -27,6 +29,7 @@ async function getLessons() {
     .find().toArray();
 }
 
+// this will reduce the lessons space by 1 and update it into the database
 async function updateLesson(id, space) {
 	return await client
     .db("project")
@@ -34,6 +37,7 @@ async function updateLesson(id, space) {
     .updateOne({ _id: ObjectId(id) }, { $inc: { "space": -space } });
 }
 
+// this will search for each lessons trhough their id
 async function searchLesson(searchTerm) {
 return client
   .db("project")
@@ -86,6 +90,7 @@ app.get("/search/:searchTerm", async (req, res) => {
   res.send(result);
 });
 
+// this will be the default sending them to the index page
 app.get("/", async (req, res) => {
   res.sendFile(__dirname +"/index.html");
 });
