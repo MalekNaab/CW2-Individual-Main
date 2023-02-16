@@ -1,3 +1,5 @@
+const APIURI=  'https://protected-sands-01258.herokuapp.com'
+
 let webstore = new Vue({
   el: "#app",
   data: {
@@ -11,6 +13,7 @@ let webstore = new Vue({
     searchTerm: "",
   },
   methods: {
+    // this is to change from the product page to payment page or other way round
     togglePage() {
       if (this.activePage === "lessons") {
         this.activePage = "confirm";
@@ -18,16 +21,18 @@ let webstore = new Vue({
         this.activePage = "lessons";
       }
     },
+    // this will purchase a lesson 
     purchaseLesson(lesson) {
       this.targetLesson = lesson;
       this.togglePage();
     },
+    // this will cancel a purchase
     cancelLesson() {
       this.targetLesson = null;
       this.togglePage();
     },
     async confirm() {
-      await fetch(`/order`, {
+      await fetch(`${APIURI}/order`, {
         method: "POST",
         body: JSON.stringify({
           name: this.name,
@@ -38,7 +43,7 @@ let webstore = new Vue({
       }).then(async (response) => {
         let data = await response.json();
 
-        await fetch(`/lesson/${this.targetLesson._id}`, {
+        await fetch(`${APIURI}/lesson/${this.targetLesson._id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -60,18 +65,20 @@ let webstore = new Vue({
         });
       });
     },
+    // this will allow the user to serch for lessons
     async search() {
-      let response = await fetch(`/search/${this.searchTerm}`, {
-        method: "GET",
+      let response = await fetch(`${APIURI}/search/${this.searchTerm}`, {
+        method: "GET", // this will get the lessons from the database from what we searched for
       });
       let data = await response.json();
       this.lessons = data;
 
       console.log("data: ", data);
     },
+    // this will retreive lessons and diplay them
     async getLessons() {
-      let response = await fetch(`/lesson`, {
-        method: "GET",
+      let response = await fetch(`${APIURI}/lesson`, {
+        method: "GET", //this will get the lessons from the database
       });
       let data = await response.json();
       this.lessons = data;
@@ -108,6 +115,7 @@ let webstore = new Vue({
     this.getLessons()
   },
   watch: {
+    // this will constantly update the search criteria like in google
     searchTerm() {
       if(this.searchTerm) {
         this.search();
