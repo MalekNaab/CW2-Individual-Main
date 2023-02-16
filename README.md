@@ -4,4 +4,6 @@ GITHUB BACKEND: https://github.com/MalekNaab/CW2-Individual-Backend
 
 GITHUB PAGES: https://github.com/MalekNaab/CW2-Individual-Main
 
-Heroku Page: https://protected-sands-01258.herokuapp.com/
+GITHUB WEBPAGE: https://maleknaab.github.io/CW2-Individual-Main/
+
+HEROKU PAGE: https://protected-sands-01258.herokuapp.com/
