@@ -25,26 +25,26 @@
             <section class="lessons-section">
                 <!-- individual lesson item -->
                 <div class="lessons-list" v-if="sortedLessons.length">
-                    <article v-for="(lesson, index) in sortedLessons" :key="lesson.id" class="lesson">
+                    <article v-for="(lesson, index) in sortedLessons" :key="lesson.id" class="lesson"> <!-- this will display all of the lessons by getting their id -->
                         <div class="lesson-left">
-                            <img :src="`./public/course${index+1}.jpg`" class="lesson-image" />
-                            <h1 class="lesson-title">{{ lesson.topic }}</h1>
+                            <img :src="`./public/course${index+1}.jpg`" class="lesson-image" /> <!-- this will display the courses image -->
+                            <h1 class="lesson-title">{{ lesson.topic }}</h1> <!-- this will show lessons name -->
                             <button :class="lesson.space === 0 ? 'disabled-purchase-btn' : 'purchase-btn'"
                                 @click="purchaseLesson(lesson)">Buy</button>
                         </div>
                         <div class="lesson-right">
                             <p class="lesson-description" v-html="lesson.description"></p>
                             <p>
-                                <span class="fa fa-map-marker"></span>
-                                <span>{{ lesson.location }}</span>
+                                <span>Location:</span>
+                                <span>{{ lesson.location }}</span> <!-- this will show lessons location -->
                             </p>
                             <p>
-                                <span class="fa fa-money"></span>
-                                <span>{{ lesson.price }}</span>
+                                <span>Price:</span>
+                                <span>£{{ lesson.price }}</span> <!-- this will show lessons price -->
                             </p>
                             <p>
-                                <span class="fa fa-users"></span>
-                                <span>{{ lesson.space }}</span>
+                                <span>Spaces Availability:</span>
+                                <span>{{ lesson.space }}</span> <!-- this will show lessons space -->
                             </p>
                             <p v-if="lesson.space === 0">Out of stock more will come</p>
                             <p v-else-if="lesson.space < 5">Only {{ lesson.space }} left!</p>
