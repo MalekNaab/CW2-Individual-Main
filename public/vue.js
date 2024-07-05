@@ -1,4 +1,4 @@
-const APIURI=  'https://protected-sands-01258.herokuapp.com'
+
 
 let webstore = new Vue({
   el: "#app",
