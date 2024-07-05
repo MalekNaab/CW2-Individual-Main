@@ -32,7 +32,7 @@ let webstore = new Vue({
       this.togglePage();
     },
     async confirm() {
-      await fetch(`${APIURI}/order`, {
+      await fetch(`/order`, {
         method: "POST",
         body: JSON.stringify({
           name: this.name,
@@ -67,7 +67,7 @@ let webstore = new Vue({
     },
     // this will allow the user to serch for lessons
     async search() {
-      let response = await fetch(`${APIURI}/search/${this.searchTerm}`, {
+      let response = await fetch(`/search/${this.searchTerm}`, {
         method: "GET", // this will get the lessons from the database from what we searched for
       });
       let data = await response.json();
@@ -77,7 +77,7 @@ let webstore = new Vue({
     },
     // this will retreive lessons and diplay them
     async getLessons() {
-      let response = await fetch(`${APIURI}/lesson`, {
+      let response = await fetch(`/lesson`, {
         method: "GET", //this will get the lessons from the database
       });
       let data = await response.json();
